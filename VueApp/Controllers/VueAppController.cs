@@ -23,5 +23,13 @@ namespace VueApp.Controllers
             return Ok(db.Formularios.ToList());
         }
 
+        [HttpGet]
+        [Route("api/vueapp/buscarformulario")]
+        [ResponseType(typeof(IEnumerable<Formulario>))]
+        public IHttpActionResult BuscarFormulario()
+        {
+            return Ok(db.Formularios.ToList());
+        }
+
     }
 }

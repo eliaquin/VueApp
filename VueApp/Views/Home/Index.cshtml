@@ -7,6 +7,7 @@
 <div id="app">
 
     <h2>Index</h2>
+    <h3>{{cantidadObjetos}} registros guardados</h3>
 
     <form>
         <div class="form-group">
@@ -30,13 +31,13 @@
     <table class="table table-striped" v-if="formularios.length > 0">
         <thead>
             <tr>
-                <th>Nombre completo</th>
-                <th>Fecha de ingreso</th>
+                <th v-on:click="organizarpor('Nombre')">Nombre completo</th>
+                <th v-on:click="organizarpor('Fecha')">Fecha de ingreso</th>
                 <th>Está en carrera</th>
             </tr>
         </thead>
         <tbody>
-            <tr v-for="f in formularios">
+            <tr v-for="f in organizados">
                 <td>{{f.Nombre}}</td>
                 <td>{{f.Fecha}}</td>
                 <td><input type="checkbox" v-model="f.EnCarrera"></td>
@@ -46,5 +47,6 @@
 </div>
 
 <script src="~/Scripts/vue.js"></script>
+<script src="~/Scripts/underscore.js"></script>
 <script src="~/Scripts/requests.js"></script>
 <script src="~/Scripts/app.js?ts=@DateTime.Now.Second"></script>
